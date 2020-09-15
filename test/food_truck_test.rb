@@ -18,6 +18,14 @@ class FoodTruckTest < Minitest::Test
     assert_instance_of Hash, @food_truck.inventory
   end
 
+  def test_items_can_be_added_to_inventory
+    @food_truck.stock(@item1, 30)
+    @food_truck.stock(@item2, 20)
+    expected = {@item1 => 30, @item2 => 20}
+
+    assert_equal expected, @food_truck.inventory
+  end
+
   def test_it_can_check_stock
     assert_equal 0, @food_truck.check_stock(@item1)
 
@@ -26,7 +34,7 @@ class FoodTruckTest < Minitest::Test
     assert_equal 30, @food_truck.check_stock(@item1)
 
     @food_truck.stock(@item1, 25)
-    
+
     assert_equal 55, @food_truck.check_stock(@item1)
   end
 end
