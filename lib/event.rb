@@ -49,4 +49,10 @@ class Event
       item[1][:quantity] > 50 && item[1][:food_trucks].count > 1
     end
   end
+
+  def overstocked_items
+    find_all_overstocked_items.flatten.find_all do |overstock|
+      overstock.class == Item
+    end
+  end
 end
