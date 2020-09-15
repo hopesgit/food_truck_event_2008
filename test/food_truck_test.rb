@@ -42,6 +42,6 @@ class FoodTruckTest < Minitest::Test
     @food_truck.stock(@item1, 30)
     @food_truck.stock(@item2, 20)
 
-    assert_equal 125.00, @food_truck.potential_revenue
+    assert_equal 162.50, @food_truck.potential_revenue
   end
 end
