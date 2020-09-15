@@ -79,6 +79,23 @@ class EventTest < Minitest::Test
     assert_equal [@item1, @item2, @item4, @item3], @event.unique_items
   end
 
+  def test_it_can_get_quantity_of_single_item_in_all_trucks
+    @food_truck1.stock(@item1, 35)
+    @food_truck1.stock(@item2, 7)
+    @food_truck2.stock(@item4, 50)
+    @food_truck2.stock(@item3, 25)
+    @food_truck3.stock(@item1, 65)
+    @food_truck3.stock(@item3, 10)
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
+    assert_equal 100, @event.item_total(@item1)
+    assert_equal 7, @event.item_total(@item2)
+    assert_equal 35, @event.item_total(@item3)
+    assert_equal 50, @event.item_total(@item4)
+  end
+
   def test_it_can_get_total_inventory
     @food_truck1.stock(@item1, 35)
     @food_truck1.stock(@item2, 7)
