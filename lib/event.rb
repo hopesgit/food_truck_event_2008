@@ -24,4 +24,14 @@ class Event
       truck.inventory[item] > 0
     end
   end
+
+  def unique_items
+    @food_trucks.flat_map do |truck|
+      truck.inventory.keys
+    end.uniq
+  end
+
+  # def total_inventory
+  #   aweg
+  # end
 end
