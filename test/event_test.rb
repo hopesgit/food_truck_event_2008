@@ -30,6 +30,6 @@ class EventTest < Minitest::Test
     @event.add_food_truck(@food_truck2)
     @event.add_food_truck(@food_truck3)
 
-    assert_equal [@food_truck1, @food_truck2, @food_truck3], event.food_trucks 
+    assert_equal [@food_truck1, @food_truck2, @food_truck3], @event.food_trucks 
   end
 end
