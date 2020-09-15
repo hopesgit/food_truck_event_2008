@@ -31,7 +31,16 @@ class Event
     end.uniq
   end
 
+  def item_total(item)
+    @food_trucks.sum do |truck|
+      truck.check_stock(item)
+    end
+  end
+
   # def total_inventory
-  #   aweg
+  #   unique_items.reduce({}) do |outside_hash, item|
+  #     outside_hash[item] = Hash.new(quantity: )
+  #     outside_hash
+  #   end
   # end
 end
