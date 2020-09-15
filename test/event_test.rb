@@ -23,4 +23,13 @@ class EventTest < Minitest::Test
     assert_equal "South Pearl Street Farmers Market", @event.name
     assert_instance_of Array, @event.food_trucks
   end
+
+  def test_it_can_add_trucks
+    assert_equal [], @event.food_trucks
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
+    assert_equal [@food_truck1, @food_truck2, @food_truck3], event.food_trucks 
+  end
 end
