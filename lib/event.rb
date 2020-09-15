@@ -40,7 +40,6 @@ class Event
   def total_inventory
     unique_items.reduce({}) do |outside_hash, item|
       outside_hash[item] = Hash[quantity: item_total(item), food_trucks: food_trucks_that_sell(item)]
-      require "pry"; binding.pry
       outside_hash
     end
   end
