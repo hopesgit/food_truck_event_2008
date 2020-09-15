@@ -15,7 +15,7 @@ class FoodTruckTest < Minitest::Test
 
   def test_it_has_attributes
     assert_equal "Rocky Mountain Pies", @food_truck.name
-    assert_equal {}, @food_truck.inventory
+    assert_instance_of Hash, @food_truck.inventory
   end
 
   def test_it_can_check_stock
