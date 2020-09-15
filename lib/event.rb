@@ -55,4 +55,10 @@ class Event
       overstock.class == Item
     end
   end
+
+  def sorted_item_list
+    unique_items.map do |item|
+      item.name
+    end.sort
+  end
 end
