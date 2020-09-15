@@ -43,4 +43,10 @@ class Event
       outside_hash
     end
   end
+
+  def find_all_overstocked_items
+    total_inventory.find_all do |item|
+      item[1][:quantity] > 50 && item[1][:food_trucks].count > 1
+    end
+  end
 end
